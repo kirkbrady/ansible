@@ -1,0 +1,87 @@
+- hosts: localhost
+  become: true
+
+  tasks:
+  - name: Add repositories
+    apt_repository:
+      repo: "{{ item }}"
+      state: present
+      update_cache: yes
+    with_items:
+    - "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+    - "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
+    - "ppa:webupd8team/java"
+    - "deb http://download.opensuse.org/repositories/home:/strycore/xUbuntu_{{ ansible_distribution_version }}/ ./"
+    - "deb http://deb.playonlinux.com/ precise main"
+    - "ppa:gregory-hainaut/pcsx2.official.ppa"
+    - "ppa:nathan-renniewaldock/flux"
+    - "ppa:dolphin-emu/ppa"
+    - "ppa:mdeguzis/libregeek"
+      
+  - name: Remove packages
+    package:
+      state: absent
+      name: "{{ item }}"
+    with_items:
+    - aisleriot
+    - firefox
+    - gnome-color-manager
+    - gnome-mahjongg-
+    - gnome-maps-
+    - gnome-mines
+    - gnome-orca
+    - gnome-photos
+    - gnome-power-manager
+    - gnome-sudoku
+    - '^libreoffice*'
+    - rhythmbox
+    - simple-scan
+
+  - name: Install packages
+    package:
+      state: present
+      name: "{{ item }}"
+    with_items:
+    - antimicro
+    - app-install-data-partner
+    - apt-transport-https
+    - arc-theme
+    - baobab
+    - bsdutils
+    - budgie-desktop-environment
+    - budgie-dropby-applet
+    # - aws-cli
+    - code
+    - digikam
+    - docker.io
+    - dolphin-emu
+    - evince
+    - exiftool
+    - fdisk
+    - file-roller
+    - fonts-noto-color-emoji
+    - fluxgui
+    - galculator
+    - git
+    - google-chrome-stable
+    - gnome-characters
+    - gnome-disk-utility
+    - gnome-screenshot
+    - gnome-system-monitor
+    - gstreamer1.0-fluendo-mp3
+    - gstreamer1.0-libav
+    - gstreamer1.0-plugins-ugly
+    - gstreamer1.0-vaapi
+    - gthumb
+    - jq
+    - jstest-gtk
+    - libdvdread4
+    - lutris
+    - minidlna
+    - oracle-java8-installer
+    # - pcsx2
+    - retroarch
+    - steam
+    - vagrant
+    - virtualbox
+    - winbind
