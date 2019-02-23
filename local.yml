@@ -2,21 +2,21 @@
   become: true
 
   tasks:
-  - name: Add repositories
-    apt_repository:
-      repo: "{{ item }}"
-      state: present
-      update_cache: yes
-    with_items:
-    - "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
-    - "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
-    - "ppa:webupd8team/java"
-    - "deb http://download.opensuse.org/repositories/home:/strycore/xUbuntu_{{ ansible_distribution_version }}/ ./"
-    - "deb http://deb.playonlinux.com/ precise main"
-    - "ppa:gregory-hainaut/pcsx2.official.ppa"
-    - "ppa:nathan-renniewaldock/flux"
-    - "ppa:dolphin-emu/ppa"
-    - "ppa:mdeguzis/libregeek"
+  # - name: Add repositories
+  #   apt_repository:
+  #     repo: "{{ item }}"
+  #     state: present
+  #     update_cache: yes
+  #   with_items:
+  #   - "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+  #   - "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
+  #   - "ppa:webupd8team/java"
+  #   - "deb http://download.opensuse.org/repositories/home:/strycore/xUbuntu_{{ ansible_distribution_version }}/ ./"
+  #   - "deb http://deb.playonlinux.com/ precise main"
+  #   - "ppa:gregory-hainaut/pcsx2.official.ppa"
+  #   - "ppa:nathan-renniewaldock/flux"
+  #   - "ppa:dolphin-emu/ppa"
+  #   - "ppa:mdeguzis/libregeek"
       
   - name: Remove packages
     package:
