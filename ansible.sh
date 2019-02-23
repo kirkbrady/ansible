@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/env bash
+
 # stop on errors
 set -ex
 

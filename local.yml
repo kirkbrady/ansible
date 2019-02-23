@@ -33,7 +33,7 @@
     - gnome-photos
     - gnome-power-manager
     - gnome-sudoku
-    - '^libreoffice*'
+    # - '^libreoffice*'
     - rhythmbox
     - simple-scan
 
